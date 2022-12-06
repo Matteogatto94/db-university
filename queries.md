@@ -54,7 +54,7 @@ SELECT * FROM `teachers` WHERE `phone` IS NULL;
 - Contare quanti iscritti ci sono stati ogni anno
 
 ```sql
-SELECT COUNT(id) AS `Number of Enrollments`, year(`enrolment_date`) FROM `students` GROUP BY year(`enrolment_date`);
+SELECT COUNT(id) AS `Number of Enrollments`, year(`enrolment_date`) AS `Year of Enrollment` FROM `students` GROUP BY year(`enrolment_date`);
 ```
 
 - Contare gli insegnanti che hanno l'ufficio nello stesso edificio
@@ -78,3 +78,7 @@ SELECT `department_id` AS 'Departments Number', COUNT(id) AS 'Degrees Number' FR
 ## JOIN
 
 - Selezionare tutti gli studenti iscritti al Corso di Laurea in Economia
+
+```sql
+SELECT `students`.`name`, `students`.`surname`,`degrees`.`name` AS 'Corso di Laurea in Economia' FROM `students` JOIN `degrees` ON `degrees`.`id` = `students`.`degree_id` WHERE `degrees`.`name` like '%Economia%';
+```
