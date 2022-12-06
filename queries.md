@@ -54,23 +54,27 @@ SELECT * FROM `teachers` WHERE `phone` IS NULL;
 - Contare quanti iscritti ci sono stati ogni anno
 
 ```sql
-SELECT year(`enrolment_date`) AS 'Year of Enrollment',COUNT(`id`) AS 'Number of Enrollments' FROM `students` GROUP BY year(`enrolment_date`);
+SELECT COUNT(id) AS `Number of Enrollments`, year(`enrolment_date`) FROM `students` GROUP BY year(`enrolment_date`);
 ```
 
 - Contare gli insegnanti che hanno l'ufficio nello stesso edificio
 
 ```sql
-SELECT `office_address`, COUNT(`id`) AS 'Teachers Number' FROM `teachers` GROUP BY `office_address`;
+SELECT `office_address`, COUNT(id) AS 'Teachers Number' FROM `teachers` GROUP BY `office_address`;
 ```
 
 - Calcolare la media dei voti di ogni appello d'esame
 
 ```sql
-SELECT `exam_id` AS 'Exam Appeal', AVG(`vote`) AS 'Average Appeal' FROM `exam_student` GROUP BY `exam_id`;
+SELECT AVG(`vote`) AS 'Average Appeal', `exam_id` FROM `exam_student` GROUP BY `exam_id`;
 ```
 
 - Contare quanti corsi di laurea ci sono per ogni dipartimento
 
 ```sql
-SELECT `department_id` AS 'Departments Number', COUNT(`id`) AS 'Degrees Number' FROM `degrees` GROUP BY `department_id`;
+SELECT `department_id` AS 'Departments Number', COUNT(id) AS 'Degrees Number' FROM `degrees` GROUP BY `department_id`;
 ```
+
+## JOIN
+
+- Selezionare tutti gli studenti iscritti al Corso di Laurea in Economia
