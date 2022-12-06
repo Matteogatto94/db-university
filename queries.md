@@ -60,7 +60,7 @@ SELECT year(`enrolment_date`) AS 'Year of Enrollment',COUNT(`id`) AS 'Number of 
 - Contare gli insegnanti che hanno l'ufficio nello stesso edificio
 
 ```sql
-SELECT `office_address`, COUNT(id) AS 'Teachers Number' FROM `teachers` GROUP BY `office_address`;
+SELECT `office_address`, COUNT(`id`) AS 'Teachers Number' FROM `teachers` GROUP BY `office_address`;
 ```
 
 - Calcolare la media dei voti di ogni appello d'esame
